@@ -24,7 +24,7 @@ resource "kubernetes_deployment" "zookeeper" {
   }
 
   spec {
-    replicas = 1  # Single node for dev
+    replicas = 1 # Single node for dev
 
     selector {
       match_labels = {
@@ -43,14 +43,14 @@ resource "kubernetes_deployment" "zookeeper" {
         container {
           name  = "zookeeper"
           image = "bitnami/zookeeper:latest"
-          
+
           port {
             container_port = 2181
           }
 
           env {
             name  = "ALLOW_ANONYMOUS_LOGIN"
-            value = "yes"  # For development only
+            value = "yes" # For development only
           }
         }
       }
@@ -85,7 +85,7 @@ resource "kubernetes_deployment" "kafka" {
   }
 
   spec {
-    replicas = 1  # Single node for development
+    replicas = 1 # Single node for development
 
     selector {
       match_labels = {
@@ -107,7 +107,7 @@ resource "kubernetes_deployment" "kafka" {
 
           port {
             container_port = 9092
-            name          = "kafka"
+            name           = "kafka"
           }
 
           env {
@@ -173,7 +173,7 @@ resource "kubernetes_deployment" "redis" {
   }
 
   spec {
-    replicas = 1  # Single replica for dev
+    replicas = 1 # Single replica for dev
 
     selector {
       match_labels = {

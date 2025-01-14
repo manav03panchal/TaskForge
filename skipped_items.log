@@ -1,0 +1,4 @@
+Skipped directory: .git
+Skipped file (ignored): skipped_items.log
+Skipped file (ignored): README.md
+Skipped non-text file: deploy/terraform/.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.24.0/linux_amd64/terraform-provider-kubernetes_v2.24.0_x5

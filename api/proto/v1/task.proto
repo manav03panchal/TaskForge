@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package taskforge.v1;
+
+option go_package = "github.com/manav03panchal/taskforge/pkg/api/v1";
+
+import "google/protobuf/timestamp.proto";
+
+service TaskService {
+  rpc CreateTask(CreateTaskRequest) returns (Task) {}
+  rpc GetTask(GetTaskRequest) returns (Task) {}
+  rpc ListTasks(ListTasksRequest) returns (ListTasksResponse) {}
+}
+
+message Task {
+  string id = 1;
+  string type = 2;
+  string command = 3;
+  string status = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message CreateTaskRequest {
+  string type = 1;
+  string command = 2;
+}
+
+message GetTaskRequest {
+  string id = 1;
+}
+
+message ListTasksRequest {
+  int32 page_size = 1;
+  string page_token = 2;
+}
+
+message ListTasksResponse {
+  repeated Task tasks = 1;
+  string next_page_token = 2;
+}
+
